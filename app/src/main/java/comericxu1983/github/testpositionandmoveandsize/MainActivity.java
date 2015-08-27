@@ -35,9 +35,9 @@ public class MainActivity extends ActionBarActivity {
 
     private void test() {
         testGetViewInfo();
-//        testChangeViewPos();
+        testChangeViewPos();
 //        testChangeViewSize();
-        testAnimatedChangeViewPos();
+//        testAnimatedChangeViewPos();
     }
 
     private void testAnimatedChangeViewPos() {
@@ -105,19 +105,24 @@ D/eric_debug(24985): pos -> x:1051.000000, y:51.000000, left:51, top:51, width:2
         Log.d(TAG, "testChangeViewPos setTo point(600, 600)");
 
 
-        text.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                Log.d(TAG, "testChangeViewPos onLayoutChange");
-                printViewInfo(text);
+        //todo eric it doesn't work at all
+//        text.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+//            @Override
+//            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+//                Log.d(TAG, "testChangeViewPos onLayoutChange");
+//                printViewInfo(text);
+//
+//                text.removeOnLayoutChangeListener(this);
+//            }
+//        });
 
-                //todo eric
-//                text.removeOnLayoutChangeListener();
-            }
-        });
+
 
         text.setX(600);
         text.setY(600);
+
+        //不需要回调，直接已经将view 放到了对应位置
+        printViewInfo(text);
 
 
     }
